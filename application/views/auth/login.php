@@ -12,7 +12,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center mb-4">
-                                <h1 class="h4 text-gray-900"><b>Reminder PKWT</b></h1>
+                                <h1 class="h4 text-gray-900"><b>Surat Jalan</b></h1>
                                 <h2 class="h4 text-gray-900"><b>AKT Indonesia</b></h2>
                                 <span class="text-muted">Login</span>
                             </div>
@@ -42,7 +42,7 @@
 
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span style="color:white;font-size:12px;">Copyright 2024 &copy; Reminder PKWT AKT Indonesia | Doni AKTID 2024</span>
+            <span style="color:white;font-size:12px;">Copyright 2024 &copy; SI Surat Jalan AKT Indonesia | Doni AKTID 2024</span>
         </div>
     </div>
 

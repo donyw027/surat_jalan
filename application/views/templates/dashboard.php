@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $title; ?> | Reminder PKWT AKT ID</title>
+    <title><?= $title; ?> | Surat Jalan AKT ID</title>
     <link rel="icon" href="<?= base_url('assets/img/xto.ico'); ?>">
 
     <!-- Custom fonts for this template-->
@@ -62,7 +62,7 @@
                     <img src="<?= base_url('assets/img/xto.png'); ?>" width="50px" height="50px" alt="">
                 </div>
                 <div class="sidebar-brand-text mx-1">
-                    <font color=black>Reminder PKWT</font>
+                    <font color=black>Surat Jalan</font>
                 </div>
             </b>
 
@@ -106,7 +106,7 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('pkwt'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Master PKWT & HRD</span>
+                    <span>Master Car</span>
                 </a>
             </li>
 
@@ -115,7 +115,7 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('karyawan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Master Karyawan</span>
+                    <span>Master Authorize</span>
                 </a>
             </li>
 
@@ -134,21 +134,10 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('karyawan/data_pkwt'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>All Data PKWT</span>
+                    <span>Surat Jalan</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('karyawan/reminder_pkwt'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Reminder PKWT</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('karyawan/reminder_pkwtnext'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Friday List</span>
-                </a>
-            </li>
+            
             
 
             
@@ -156,7 +145,7 @@
 <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Slip
+                Report
             </div>
 
             <!-- Nav Item - Dashboard -->
@@ -165,15 +154,10 @@
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('payroll'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Payroll Via Email</span>
+                    <span>History Surat Jalan</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('workingdays'); ?>">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>WorkingDays Via Email</span>
-                </a>
-            </li>
+           
 
 
 
@@ -326,7 +310,7 @@
             <footer class="sticky-footer bg-light">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Reminder PKWT AKT Indonesia | Doni AKTID 2024</span>
+                        <span>Copyright &copy; Surat Jalan AKT Indonesia | Doni AKTID 2024</span>
                     </div>
                 </div>
             </footer>
