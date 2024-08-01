@@ -104,7 +104,7 @@
             </li> -->
 
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('pkwt'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('car'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Master Car</span>
                 </a>
@@ -113,7 +113,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('karyawan'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('autor'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Master Authorize</span>
                 </a>
@@ -132,7 +132,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('karyawan/data_pkwt'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('surat_jalan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Surat Jalan</span>
                 </a>
@@ -152,7 +152,7 @@
             
 
             <li class="nav-item">
-                <a class="nav-link pb-0" href="<?= base_url('payroll'); ?>">
+                <a class="nav-link pb-0" href="<?= base_url('histori_sj'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>History Surat Jalan</span>
                 </a>

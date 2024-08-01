@@ -51,7 +51,9 @@
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                           <div class="text-md font-weight-bold text-success text-uppercase mb-1">Date</div>
-                         <!--<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlah_reminder; ?> Karyawan</div> -->
+            
+            <?php $tgl = date('d M Y | H:i');  ?>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $tgl; ?> </div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-folder fa-2x text-gray-300"></i>
@@ -67,7 +69,7 @@
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                           <div class="text-md font-weight-bold text-success text-uppercase mb-1">Jumlah Record Surat Jalan</div>
-                         <!--<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlah_reminder; ?> Karyawan</div> -->
+                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $riwayat_surat_jalan; ?> Data</div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-folder fa-2x text-gray-300"></i>
@@ -83,7 +85,7 @@
                  <div class="row no-gutters align-items-center">
                      <div class="col mr-2">
                          <div class="text-md font-weight-bold text-success text-uppercase mb-1">Jumlah User</div>
-                         <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jumlah_friday; ?> Karyawan</div> -->
+                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $user; ?> User</div>
                      </div>
                      <div class="col-auto">
                          <i class="fas fa-folder fa-2x text-gray-300"></i>
