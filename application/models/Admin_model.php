@@ -12,6 +12,15 @@ class Admin_model extends CI_Model
         }
     }
 
+    public function insert_surat($data) {
+        $this->db->insert('riwayat_surat_jalan', $data);
+        return $this->db->insert_id();
+    }
+
+    public function insert_item($data) {
+        $this->db->insert('surat_jalan', $data);
+    }
+
     public function log_desc() {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('log_s');

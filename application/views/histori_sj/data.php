@@ -46,13 +46,13 @@
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= $autori['tgl']; ?></td>
-                            <td><?= $autori['no_surat']; ?></td>
+                            <td><?= $autori['no_surat_db']; ?></td>
                             <td><?= $autori['tujuan']; ?></td>
                             <td><?= $autori['perihal']; ?></td>
                             <td><?= $autori['paraf_pic']; ?></td>
                             <td>
 
-                                <a href="<?= base_url('histori_sj/detail/') . $autori['id'] ?>" class="btn btn btn-sm btn-primary">Detail Surat Jalan</a>
+                                <a href="<?= base_url('histori_sj/detail/') . $autori['no_surat'] ?>" class="btn btn btn-sm btn-primary">Detail Surat Jalan</a>
                                 <a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= base_url('histori_sj/delete/') . $autori['id'] ?>" class="btn btn-circle btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></a>
                             </td>
                         </tr>

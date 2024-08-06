@@ -21,102 +21,153 @@
                 </div>
             </div>
             <div class="card-body">
-    <?= $this->session->flashdata('pesan'); ?>
-    <?= form_open(); ?>
+                <?= $this->session->flashdata('pesan'); ?>
+                <?= form_open(); ?>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="tgl">tgl</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('tgl'); ?>" type="text" id="tgl" name="tgl" class="form-control" placeholder="Masukan tgl">
-                    <?= form_error('tgl', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
+                <?php
+                $no_surat_lanjutan = $detail_hsj->no_surat + 1;
+                $tahun = date('y');
+                $bulan = date('m');
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="no_surat">no_surat</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('no_surat'); ?>" type="text" id="no_surat" name="no_surat" class="form-control" placeholder="Masukan no_surat">
-                    <?= form_error('no_surat', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
+                $bulanRomawi = array(
+                    '01' => 'I',
+                    '02' => 'II',
+                    '03' => 'III',
+                    '04' => 'IV',
+                    '05' => 'V',
+                    '06' => 'VI',
+                    '07' => 'VII',
+                    '08' => 'VIII',
+                    '09' => 'IX',
+                    '10' => 'X',
+                    '11' => 'XI',
+                    '12' => 'XII'
+                );
+                $no_surat_value = "NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $no_surat_lanjutan;
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="tujuan">tujuan</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('tujuan'); ?>" type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Masukan tujuan">
-                    <?= form_error('tujuan', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
+                ?>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="perihal">perihal</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('perihal'); ?>" type="text" id="perihal" name="perihal" class="form-control" placeholder="Masukan perihal">
-                    <?= form_error('perihal', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan paraf_pic">
-                    <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
-        </div>
+                <div class="row">
+                    <div class="col-md-6">
 
-        <div style="margin-bottom: 50px;" class="col-md-6">
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="kepada">kepada</label>
-                <div class="col-md-9">
-                <input value="<?= set_value('kepada'); ?>" type="text" id="kepada" name="kepada" class="form-control" placeholder="Masukan kepada">
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="no_surat">no_surat</label>
+                            <div class="col-md-9">
+                                <input value="<?= $no_surat_lanjutan; ?>" type="text" id="no_surat" name="no_surat" class="form-control" placeholder="Masukan no_surat" hidden>
 
-                    <?= form_error('kepada', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
+                                <input value="<?= $no_surat_value ?>" type="text" id="no_surat_db" name="no_surat_db" class="form-control" placeholder="Masukan no_surat" readonly>
+                                <?= form_error('no_surat', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="car_plat">car_plat</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('car_plat'); ?>" type="text" id="car_plat" name="car_plat" class="form-control" placeholder="Masukan car_plat">
-                    <?= form_error('car_plat', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="tgl">tgl</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('tgl'); ?>" type="date" id="tgl" name="tgl" class="form-control" placeholder="Masukan tgl">
+                                <?= form_error('tgl', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="inv_no">inv_no</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('inv_no'); ?>" type="text" id="inv_no" name="inv_no" class="form-control" placeholder="Masukan inv_no">
-                    <?= form_error('inv_no', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="author">author</label>
-                <div class="col-md-9">
-                    <input value="<?= set_value('author'); ?>" type="text" id="author" name="author" class="form-control" placeholder="Masukan author">
-                    <?= form_error('author', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
 
-            <div class="row form-group">
-                <label class="col-3 text-md-right" for="receiver">receiver</label>
-                <div class="col-md-9">
-                <input value="<?= set_value('receiver'); ?>" type="text" id="receiver" name="receiver" class="form-control" placeholder="Masukan receiver">
 
-                    <?= form_error('receiver', '<span class="text-danger small">', '</span>'); ?>
-                </div>
-            </div>
 
-            
-        </div> 
-        
-    </div>
 
-    <div class="row">
-                    <!-- ... Existing form fields ... -->
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="tujuan">tujuan</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('tujuan'); ?>" type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Masukan tujuan">
+                                <?= form_error('tujuan', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="perihal">perihal</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('perihal'); ?>" type="text" id="perihal" name="perihal" class="form-control" placeholder="Masukan perihal">
+                                <?= form_error('perihal', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan paraf_pic">
+                                <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 50px;" class="col-md-6">
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="kepada">kepada</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('kepada'); ?>" type="text" id="kepada" name="kepada" class="form-control" placeholder="Masukan kepada">
+
+                                <?= form_error('kepada', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="inv_no">inv_no</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('inv_no'); ?>" type="text" id="inv_no" name="inv_no" class="form-control" placeholder="Masukan inv_no">
+                                <?= form_error('inv_no', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="car_plat">car_plat</label>
+                            <div class="col-md-9">
+                                <!-- <input value="<?= set_value('car_plat'); ?>" type="text" id="car_plat" name="car_plat" class="form-control" placeholder="Masukan car_plat"> -->
+                                <select class="form-control" name="car_plat" id="car_plat">
+                                    <option value="">--Pilih Car Plat--</option>
+                                    <?php if (!empty($car_plat)) : ?>
+                                        <?php foreach ($car_plat as $car_plati) : ?>
+                                            <option value="<?= $car_plati['plat']; ?>"><?= $car_plati['plat']; ?> - <?= $car_plati['keterangan']; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <option value="">Data tidak ada</option>
+                                    <?php endif; ?>
+                                </select>
+                                <?= form_error('car_plat', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="author">author</label>
+                            <div class="col-md-9">
+                                <!-- <input value="<?= set_value('author'); ?>" type="text" id="author" name="author" class="form-control" placeholder="Masukan author"> -->
+                                <select class="form-control" name="author" id="author">
+                                    <option value="">--Pilih Authorize--</option>
+                                    <?php if (!empty($author1)) : ?>
+                                        <?php foreach ($author1 as $authori) : ?>
+                                            <option value="<?= $authori['nama']; ?>"><?= $authori['nama']; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <option value="">Data tidak ada</option>
+                                    <?php endif; ?>
+                                </select>
+                                <?= form_error('author', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="receiver">receiver</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('receiver'); ?>" type="text" id="receiver" name="receiver" class="form-control" placeholder="Masukan receiver">
+
+                                <?= form_error('receiver', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+
+
+                    </div>
+
                 </div>
 
                 <div id="form-container">
@@ -126,7 +177,7 @@
                                 <label class="col-3 text-md-right" for="item">Item</label>
                                 <div class="col-md-9">
                                     <input value="<?= set_value('item'); ?>" type="text" id="item" name="item[]" class="form-control" placeholder="Masukan item">
-                                    <?= form_error('item', '<span class="text-danger small">', '</span>'); ?>
+                                    <?= form_error('item[]', '<span class="text-danger small">', '</span>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +186,7 @@
                                 <label class="col-3 text-md-right" for="deskripsi">Deskripsi</label>
                                 <div class="col-md-9">
                                     <input value="<?= set_value('deskripsi'); ?>" type="text" id="deskripsi" name="deskripsi[]" class="form-control" placeholder="Masukan deskripsi">
-                                    <?= form_error('deskripsi', '<span class="text-danger small">', '</span>'); ?>
+                                    <?= form_error('deskripsi[]', '<span class="text-danger small">', '</span>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +204,7 @@
                                 <label class="col-3 text-md-right" for="remark">Remark</label>
                                 <div class="col-md-9">
                                     <input value="<?= set_value('remark'); ?>" type="text" id="remark" name="remark[]" class="form-control" placeholder="Masukan remark">
-                                    <?= form_error('remark', '<span class="text-danger small">', '</span>'); ?>
+                                    <?= form_error('remark[]', '<span class="text-danger small">', '</span>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -172,45 +223,47 @@
                         </button>
                     </div>
                 </div>
-    
-    <br>
 
-    <div class="row form-group justify-content-end">
-        <div class="col-md-8">
-            <button type="submit" class="btn btn-primary btn-icon-split">
-                <span class="icon"><i class="fa fa-save"></i></span>
-                <span class="text">Simpan</span>
-            </button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
-        </div>
-    </div>
-
-    <?= form_close(); ?>
-</div>
+                <br>
+                <br><br><br>
 
 
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <button type="submit" class="btn btn-primary btn-icon-split">
+                            <span class="icon"><i class="fa fa-save"></i></span>
+                            <span class="text">Simpan</span>
+                        </button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
 
-
-                
-                
-                
+                <?= form_close(); ?>
+            </div>
 
 
 
-               
-            
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 </div>
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const formContainer = document.getElementById('form-container');
-
-        document.getElementById('add-row').addEventListener('click', function () {
+        document.getElementById('add-row').addEventListener('click', function() {
             const newRow = document.createElement('div');
             newRow.className = 'row';
+
             newRow.innerHTML = `
                 <div class="col-md-3">
                     <div class="row form-group">
@@ -248,10 +301,11 @@
                     </div>
                 </div>
             `;
+
             formContainer.appendChild(newRow);
         });
 
-        document.getElementById('remove-row').addEventListener('click', function () {
+        document.getElementById('remove-row').addEventListener('click', function() {
             if (formContainer.children.length > 1) {
                 formContainer.removeChild(formContainer.lastElementChild);
             }

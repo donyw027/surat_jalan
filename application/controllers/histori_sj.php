@@ -26,6 +26,24 @@ class Histori_sj extends CI_Controller
         }
     }
 
+    public function detail()
+    {   
+        $no_surat = $this->uri->segment('3');
+        // var_dump($no_surat);die();
+
+        $data['title'] = "Detail Surat Jalan";
+        $role = $this->session->userdata('login_session')['role'];
+
+        if (is_admin() == true) {
+            $data['detail_hsj'] = $this->db->query("SELECT * FROM `riwayat_surat_jalan` WHERE no_surat = '$no_surat'")->row();
+            $data['detail_sj1'] = $this->db->query("SELECT * FROM `surat_jalan` WHERE no_surat = '$no_surat'")->row();
+
+            $data['detail_sj'] = $this->db->query("SELECT * FROM `surat_jalan` WHERE no_surat = '$no_surat'")->result();
+
+            $this->template->load('templates/dashboard', 'histori_sj/detail', $data);
+        }
+    }
+
     private function _validasi($mode)
     {
         $this->form_validation->set_rules('tgl', 'tgl', 'required|trim');
@@ -115,11 +133,17 @@ class Histori_sj extends CI_Controller
     public function delete($getId)
     {
         $id = encode_php_tags($getId);
-        $riwayat_surat_jalan = $this->admin->get('riwayat_surat_jalan', ['id' => $id]);
+        $riwayat_surat_jalan = $this->admin->get('riwayat_surat_jalan', ['id' => $id ]);
+        $d_surat_jalan = $this->db->query("SELECT * FROM `riwayat_surat_jalan` WHERE id = '$id'")->row();
+        $nosuratsj= $d_surat_jalan->no_surat;
+       
+            
+        
+
+
         $no_surat = $riwayat_surat_jalan['no_surat'];
 
-
-        $yang_login = $this->session->userdata('login_session')['no_surat'];
+        $yang_login = $this->session->userdata('login_session')['nama'];
             $tgl = date('d M Y | H:i');
                 $data_log = [
                     'tanggal'       => $tgl,
@@ -130,12 +154,12 @@ class Histori_sj extends CI_Controller
                 // var_dump($data_log);die();
 
 
-        if ($this->admin->delete('riwayat_surat_jalan', 'id', $id) and  $this->admin->insert('log_s', $data_log)) {
+        if ($this->admin->delete('riwayat_surat_jalan', 'id', $id) and $this->admin->delete('surat_jalan', 'no_surat', $nosuratsj) and  $this->admin->insert('log_s', $data_log)) {
             set_pesan('data berhasil dihapus.');
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('autor');
+        redirect('histori_sj');
     }
 
     
