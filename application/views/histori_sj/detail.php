@@ -50,7 +50,7 @@
                     <th style="width: 200px; background-color: #d5e5ff;">Tanggal Buat</th>
                     <td><?php 
                             if (!empty($detail_hsj->tgl)) {
-                                echo $detail_hsj->tgl;
+                                echo format_indo(date("Y-m-d", strtotime($detail_hsj->tgl)));
                             } else {
                                 echo "Data tidak ada";
                             }

@@ -143,11 +143,13 @@ class Histori_sj extends CI_Controller
 
         $no_surat = $riwayat_surat_jalan['no_surat'];
 
+        // $nosuratdb ="NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'];
+
         $yang_login = $this->session->userdata('login_session')['nama'];
             $tgl = date('d M Y | H:i');
                 $data_log = [
                     'tanggal'       => $tgl,
-                    'aksi'       => 'Delete Data (  no_surat : '. $no_surat . ')',
+                    'aksi'       => 'Delete Data (  No Surat : '. $d_surat_jalan->no_surat_db . ')',
                     'aktor'       => $yang_login
                 ];
 

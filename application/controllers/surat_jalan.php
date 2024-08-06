@@ -115,12 +115,12 @@ class Surat_jalan extends CI_Controller
             }
 
 
-
+            $nosuratdb ="NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'];
             $yang_login = $this->session->userdata('login_session')['nama'];
             $tgl = date('d M Y | H:i');
             $data_log = [
                 'tanggal'       => $tgl,
-                'aksi'       => 'Add Data Surat Jalan ( No Surat : ' . $input['no_surat'] . ', perihal : ' . $input['perihal'] . ')',
+                'aksi'       => 'Add Data Surat Jalan ( No Surat : ' . $nosuratdb . ', perihal : ' . $input['perihal'] . ')',
                 'aktor'       => $yang_login
             ];
 
@@ -215,12 +215,13 @@ class Surat_jalan extends CI_Controller
             }
 
 
+            $nosuratdb ="NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'];
 
             $yang_login = $this->session->userdata('login_session')['nama'];
             $tgl = date('d M Y | H:i');
             $data_log = [
                 'tanggal'       => $tgl,
-                'aksi'       => 'Add Data Surat Jalan ( No Surat : ' . $input['no_surat'] . ', perihal : ' . $input['perihal'] . ')',
+                'aksi'       => 'Add Data Surat Jalan ( No Surat : ' . $nosuratdb . ', perihal : ' . $input['perihal'] . ')',
                 'aktor'       => $yang_login
             ];
 
@@ -267,12 +268,13 @@ class Surat_jalan extends CI_Controller
                 'keterangan'       => $input['keterangan']
 
             ];
+            $nosuratdb ="NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'];
 
             $yang_login = $this->session->userdata('login_session')['nama'];
             $tgl = date('d M Y | H:i');
             $data_log = [
                 'tanggal'       => $tgl,
-                'aksi'       => 'Edit Data ( Plat : ' . $input['plat'] . ', Keterangan : ' . $input['keterangan'] . ')',
+                'aksi'       => 'Edit Data ( Plat : ' . $nosuratdb . ', Keterangan : ' . $input['keterangan'] . ')',
                 'aktor'       => $yang_login
             ];
 
@@ -299,6 +301,7 @@ class Surat_jalan extends CI_Controller
         $plat = $car_plat['plat'];
         $keterangan = $car_plat['keterangan'];
 
+        $nosuratdb ="NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'];
 
         $yang_login = $this->session->userdata('login_session')['nama'];
         $tgl = date('d M Y | H:i');

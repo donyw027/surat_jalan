@@ -58,6 +58,8 @@
 
         body {
             margin: 2px;
+            margin-left: 10px;
+
             padding: 0;
             background-color: #FAFAFA;
             font: 10pt "Times New Roman";
@@ -133,37 +135,37 @@
                 <b style="font-size: 15pt;"><?= $detail_sj1->no_surat_db; ?></b>
             </td>
             <td style="font-family: Arial, Helvetica, sans-serif; font-weight: 500;font-size: 11pt; margin: 0; width: 200px;"  >
-                Date :  <?= $detail_hsj->tgl; ?>
+                Date : <?= format_indo(date("Y-m-d", strtotime($detail_hsj->tgl))); ?>
             </td>
         </tr>
     </table>
-    <br>
+    
 <center>
 
     <table border="0" style="margin-left: 7px;">
-        <tr style="font-size: 11pt;">
-            <td style="width: 320px;">Kepada : <?= $detail_sj1->kepada; ?></td>
-            <td style="width: 350px;">Car License Plate : <?= $detail_sj1->car_plat; ?></td>
-            <td style="width: 250px;">Invoice No : <?= $detail_sj1->inv_no; ?></td>
+        <tr style="font-size: 10pt;">
+            <td style="width: 290px;">Kepada : <?= $detail_sj1->kepada; ?></td>
+            <td style="width: 250px;">Car License Plate : <?= $detail_sj1->car_plat; ?></td>
+            <td style="width: 200px;">Invoice No : <?= $detail_sj1->inv_no; ?></td>
         </tr>
     </table>
     <table border="0"  style="margin-left: 8px; margin-bottom: 10px; border: 1px solid black;  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; border-collapse: collapse ;">
         <tr style="text-align: center;">
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 20px;">No.</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 20px;">No</th>
             <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 260px;">Item</th>
             <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 290px;">Description</th>
             <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 90px;">Qty</th>
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 290px;">Remark</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 310px;">Remark</th>
         </tr>
         <tr style="text-align: left;" >
         <?php $no = 1; if (!empty($detail_sj)) : ?>
                         <?php foreach ($detail_sj as $index => $item) : ?>
                             <tr>
-                                <td style="border-right: 1px solid black; text-align: center;"><?= $no++; ?></td>
+                                <td style="border-right: 1px solid black; text-align: center;"><?= $item->item ? $no++ : ''; ?></td>
 
                                 <td style="border-right: 1px solid black;padding-left: 4px;"><?= $item->item; ?></td>
                                 <td style="border-right: 1px solid black;padding-left: 4px;"><?= $item->deskripsi; ?></td>
-                                <td style="border-right: 1px solid black;padding-left: 4px;"><?= $item->qty; ?></td>
+                                <td style="border-right: 1px solid black;padding-left: 4px; text-align: center;"><?= $item->qty; ?></td>
                                 <td style="border-right: 1px solid black;padding-left: 4px;"><?= $item->remark; ?></td>
                             </tr>
                         <?php endforeach; ?>
@@ -175,7 +177,7 @@
         </tr>
         
     </table>
-    <br><br><br>
+    <br>
     <table border="0">
         <tr>
             <th style="width: 300px;">Authorize</th>
@@ -205,9 +207,12 @@
             <td></td>
         </tr>
         <tr style="text-align: center;">
-            <td><hr style="width: 120px; "></td>
+            <!-- <td><hr style="width: 120px; "></td>
             <td><hr style="width: 120px;"></td>
-            <td><hr style="width: 120px;"></td>
+            <td><hr style="width: 120px;"></td> -->
+            <td>_________________</td>
+            <td>_________________</td>
+            <td>_________________</td>
         </tr>
     </table>
     </center>

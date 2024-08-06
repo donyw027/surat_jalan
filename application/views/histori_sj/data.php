@@ -24,8 +24,9 @@
             <thead>
                 <tr>
                     <th width="30">No.</th>
-                    <th>Tgl</th>
                     <th>No Surat</th>
+                    <th>Tgl</th>
+
                     <th>Tujuan</th>
                     <th>Perihal</th>
                     <th>PIC</th>
@@ -45,15 +46,19 @@
                 ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $autori['tgl']; ?></td>
-                            <td><?= $autori['no_surat_db']; ?></td>
+                            
+                            <td><a href="<?= base_url('histori_sj/detail/') . $autori['no_surat'] ?>"><?= $autori['no_surat_db'] ?></a></td>
+                            <td><?= format_indo(date("Y-m-d", strtotime($autori['tgl']))) ; ?></td>
+
                             <td><?= $autori['tujuan']; ?></td>
                             <td><?= $autori['perihal']; ?></td>
                             <td><?= $autori['paraf_pic']; ?></td>
                             <td>
 
-                                <a href="<?= base_url('histori_sj/detail/') . $autori['no_surat'] ?>" class="btn btn btn-sm btn-primary">Detail Surat Jalan</a>
-                                <a onclick="return confirm('Yakin ingin menghapus data?')" href="<?= base_url('histori_sj/delete/') . $autori['id'] ?>" class="btn btn-circle btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></a>
+                                <!-- <a href="<?= base_url('histori_sj/detail/') . $autori['no_surat'] ?>" class="btn btn btn-sm btn-primary">Detail Surat Jalan</a> -->
+                                <a href="<?= base_url('surat_jalan/printdata/') . $autori['no_surat'] ?>" class="btn btn-circle btn-sm btn-warning" target="_blank"><i class="fa fa-fw fa-print"></i></a>
+
+                                <a  onclick="return confirm('Yakin ingin menghapus data?')" href="<?= base_url('histori_sj/delete/') . $autori['id'] ?>"  class="btn btn-circle btn-sm btn-danger"><i class="fa fa-fw fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach;
