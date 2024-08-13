@@ -181,7 +181,7 @@ class Surat_jalan extends CI_Controller
                 'tgl'       => $input['tgl'],
                 'no_surat'       => $input['no_surat'],
                 'no_surat_db'  =>  "NO/SJ/" . $bulanRomawi[$bulan] . "/" . $tahun . "/0" . $input['no_surat'],
-                'tujuan'       => $input['tujuan'],
+                'tujuan'       => $input['kepada'],
                 'perihal'       => $input['perihal'],
                 'paraf_pic'       => $input['paraf_pic']
             ];

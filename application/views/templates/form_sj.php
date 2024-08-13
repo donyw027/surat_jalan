@@ -58,7 +58,7 @@
 
         body {
             margin: 2px;
-            margin-left: 10px;
+            margin-left: 3px;
 
             padding: 0;
             background-color: #FAFAFA;
@@ -72,7 +72,6 @@
         }
 
         @page {
-            size: A4;
             margin: 0;
         }
 
@@ -142,25 +141,25 @@
     
 <center>
 
-    <table border="0" style="margin-left: 7px;">
+    <table border="0" style="margin-left: 5px;">
         <tr style="font-size: 10pt;">
             <td style="width: 290px;">Kepada : <?= $detail_sj1->kepada; ?></td>
             <td style="width: 250px;">Car License Plate : <?= $detail_sj1->car_plat; ?></td>
             <td style="width: 200px;">Invoice No : <?= $detail_sj1->inv_no; ?></td>
         </tr>
     </table>
-    <table border="0"  style="margin-left: 8px; margin-bottom: 10px; border: 1px solid black;  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; border-collapse: collapse ;">
+    <table border="0"  style="margin-left: 7px; margin-bottom: 10px; border: 1px solid black !important;  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; border-collapse: collapse ;">
         <tr style="text-align: center;">
             <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 20px;">No</th>
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 260px;">Item</th>
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 290px;">Description</th>
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 90px;">Qty</th>
-            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 310px;">Remark</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 230px;">Item</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Description</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100px;">Qty</th>
+            <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Remark</th>
         </tr>
         <tr style="text-align: left;" >
         <?php $no = 1; if (!empty($detail_sj)) : ?>
                         <?php foreach ($detail_sj as $index => $item) : ?>
-                            <tr>
+                            <tr style="height: 20px;">
                                 <td style="border-right: 1px solid black; text-align: center;"><?= $item->item ? $no++ : ''; ?></td>
 
                                 <td style="border-right: 1px solid black;padding-left: 4px;"><?= $item->item; ?></td>

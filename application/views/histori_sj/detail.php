@@ -43,7 +43,7 @@
                             if (!empty($detail_hsj->no_surat_db)) {
                                 echo $detail_hsj->no_surat_db;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?>
                     </td>
@@ -52,7 +52,7 @@
                             if (!empty($detail_hsj->tgl)) {
                                 echo format_indo(date("Y-m-d", strtotime($detail_hsj->tgl)));
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
                 </tr>
@@ -65,7 +65,7 @@
                             if (!empty($detail_sj1->kepada)) {
                                 echo $detail_sj1->kepada;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
 
@@ -74,7 +74,7 @@
                             if (!empty($detail_sj1->car_plat)) {
                                 echo $detail_sj1->car_plat;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
                 </tr>
@@ -85,7 +85,7 @@
                             if (!empty($detail_sj1->inv_no)) {
                                 echo $detail_sj1->inv_no;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
 
@@ -94,7 +94,7 @@
                             if (!empty($detail_sj1->author)) {
                                 echo $detail_sj1->author;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
                 </tr>
@@ -105,7 +105,7 @@
                             if (!empty($detail_sj1->receiver)) {
                                 echo $detail_sj1->receiver;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
 
@@ -114,7 +114,7 @@
                             if (!empty($detail_hsj->paraf_pic)) {
                                 echo $detail_hsj->paraf_pic;
                             } else {
-                                echo "Data tidak ada";
+                                echo "-";
                             }
                         ?></td>
                 </tr>

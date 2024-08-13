@@ -75,11 +75,20 @@
 
 
 
-                        <div class="row form-group">
+                        <!-- <div class="row form-group">
                             <label class="col-3 text-md-right" for="tujuan">tujuan</label>
                             <div class="col-md-9">
                                 <input value="<?= set_value('tujuan'); ?>" type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Masukan tujuan">
                                 <?= form_error('tujuan', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div> -->
+
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="kepada">kepada</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('kepada'); ?>" type="text" id="kepada" name="kepada" class="form-control" placeholder="Masukan kepada">
+
+                                <?= form_error('kepada', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
 
@@ -91,24 +100,11 @@
                             </div>
                         </div>
 
-                        <div class="row form-group">
-                            <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
-                            <div class="col-md-9">
-                                <input value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan paraf_pic">
-                                <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
-                            </div>
-                        </div>
+                       
                     </div>
 
                     <div style="margin-bottom: 50px;" class="col-md-6">
-                        <div class="row form-group">
-                            <label class="col-3 text-md-right" for="kepada">kepada</label>
-                            <div class="col-md-9">
-                                <input value="<?= set_value('kepada'); ?>" type="text" id="kepada" name="kepada" class="form-control" placeholder="Masukan kepada">
-
-                                <?= form_error('kepada', '<span class="text-danger small">', '</span>'); ?>
-                            </div>
-                        </div>
+                        
 
 
 
@@ -123,8 +119,8 @@
                         <div class="row form-group">
                             <label class="col-3 text-md-right" for="car_plat">car_plat</label>
                             <div class="col-md-9">
-                                <!-- <input value="<?= set_value('car_plat'); ?>" type="text" id="car_plat" name="car_plat" class="form-control" placeholder="Masukan car_plat"> -->
-                                <select class="form-control" name="car_plat" id="car_plat">
+                                <input value="<?= set_value('car_plat'); ?>" type="text" id="car_plat" name="car_plat" class="form-control" placeholder="Masukan car_plat">
+                                <!-- <select class="form-control" name="car_plat" id="car_plat">
                                     <option value="">--Pilih Car Plat--</option>
                                     <?php if (!empty($car_plat)) : ?>
                                         <?php foreach ($car_plat as $car_plati) : ?>
@@ -133,7 +129,7 @@
                                     <?php else : ?>
                                         <option value="">Data tidak ada</option>
                                     <?php endif; ?>
-                                </select>
+                                </select> -->
                                 <?= form_error('car_plat', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
@@ -162,6 +158,13 @@
                                 <input value="<?= set_value('receiver'); ?>" type="text" id="receiver" name="receiver" class="form-control" placeholder="Masukan receiver">
 
                                 <?= form_error('receiver', '<span class="text-danger small">', '</span>'); ?>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
+                            <div class="col-md-9">
+                                <input value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan PIC">
+                                <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
 
@@ -230,7 +233,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col-md-8 text-center">
-                        <button type="submit" class="btn btn-primary btn-icon-split">
+                        <button type="submit" class="btn btn-primary btn-icon-split" onclick="return confirm('Yakin ingin Simpan dan Print data?')">
                             <span class="icon"><i class="fa fa-save"></i></span>
                             <span class="text">Simpan</span>
                         </button>

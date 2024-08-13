@@ -1,177 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title; ?></title>
+    <title>Print Surat Jalan</title>
     <link rel="icon" href="<?= base_url('assets/img/xto.ico'); ?>">
 
-
     <style>
-        @media print { body { -webkit-print-color-adjust: exact; } }
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
+
+        h2,
+        h4 {
+            text-align: center;
+        }
 
         @media print {
+            body {
+                margin: 20mm 15mm;
+                -webkit-print-color-adjust: exact;
+            }
 
-body {
-    margin: 20mm 15mm;
-    /* Atur margin halaman cetak */
+            .content {
+                page-break-inside: avoid;
+                text-align: justify;
+                margin-top: 90px;
+                page-break-inside: avoid;
+            }
 
-    -webkit-print-color-adjust: exact;
-}
+            .page-break {
+                page-break-before: always;
+                page-break-after: always;
+            }
+        }
 
-.content {
-    page-break-inside: avoid;
-    text-align: justify;
-    margin-top: 0px;
-    page-break-inside: avoid;
-    /* Hindari memecah konten di tengah halaman */
-}
+        .page-break {
+            page-break-before: always;
+            page-break-after: always;
+        }
 
-/* Atur halaman baru sebelum dan setelah elemen dengan class .page-break */
-.page-break {
-    page-break-before: always;
-    page-break-after: always;
-}
-}
+        body {
+            margin: 2px;
+            margin-left: 3px;
+            padding: 0;
+            background-color: #FAFAFA;
+            font: 10pt "Times New Roman";
+        }
 
-header {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-height: 50px;
-/* Adjust the height of your header */
-text-align: left;
-padding: 10pt;
-}
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
 
+        @page {
+            margin: 0;
+        }
 
-footer {
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-height: 50px;
-/* Adjust the height of your footer */
-text-align: center;
-padding: 10pt;
-}
+        @media print {
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
+        th, td {
+            border: 1px solid black !important;
+            padding: 4px;
+            text-align: left;
+        }
 
-/* Atur halaman baru sebelum dan setelah elemen dengan class .page-break */
-.page-break {
-page-break-before: always;
-page-break-after: always;
-}
-
-
-
-body {
-    /* text-align: center; */
-    text-align: justify;
-
-    margin: 10px;
-padding: 0;
-background-color: #FAFAFA;
-font: 10pt "Times New Roman";
-}
-
-* {
-box-sizing: border-box;
--moz-box-sizing: border-box;
-}
-
-@page {
-size: A4;
-margin: 0;
-}
-
-@media print {
-.page {
-    margin: 0px;
-    border: initial;
-    border-radius: initial;
-    width: initial;
-    min-height: initial;
-    box-shadow: initial;
-    background: initial;
-    page-break-after: always;
-}
-}
+        header.print-header {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
 
-         <table>
+<header class="print-header" id="1">
+    <br><br>
+    <button><a href="<?= base_url('Histori_sj') ?>" class="btn btn-sm btn-primary">Kembali</a></button>
+</header>
+
+<table border="0" style="margin-left: 10px;">
+    <tr>
+        <td style="width: 250px;">
+            <p style="font-family: Arial, Helvetica, sans-serif; font-weight: 800;font-size: 14pt; margin: 0;">PT. <b style="font-weight: 800;font-size: 19pt;">AKT</b> INDONESIA</p>
+            <p style="text-align: left; margin-top: 0px; font-size: 11pt;">Jalan Rembang Industri Raya 45 Pier <br> Pasuruan, Indonesia <br>Post Code : 67152</p>
+        </td>
+        <td style="width: 280px; text-align: center;">
+            <H2 style="margin: 0;"><br>SURAT JALAN</H2>
+            <?php   
+                $tahun = date('y');
+                $bulan = date('m');
+
+                $bulanRomawi = array(
+                    '01' => 'I',
+                    '02' => 'II',
+                    '03' => 'III',
+                    '04' => 'IV',
+                    '05' => 'V',
+                    '06' => 'VI',
+                    '07' => 'VII',
+                    '08' => 'VIII',
+                    '09' => 'IX',
+                    '10' => 'X',
+                    '11' => 'XI',
+                    '12' => 'XII'
+                );
+            ?>
+            <b style="font-size: 15pt;"><?= $detail_sj1->no_surat_db; ?></b>
+        </td>
+        <td style="font-family: Arial, Helvetica, sans-serif; font-weight: 500;font-size: 11pt; margin: 0; width: 200px;">
+            Date : <?= format_indo(date("Y-m-d", strtotime($detail_hsj->tgl))); ?>
+        </td>
+    </tr>
+</table>
+
+<center>
+
+<table border="0" style="margin-left: 5px;">
+    <tr style="font-size: 10pt;">
+        <td style="width: 290px;">Kepada : <?= $detail_sj1->kepada; ?></td>
+        <td style="width: 250px;">Car License Plate : <?= $detail_sj1->car_plat; ?></td>
+        <td style="width: 200px;">Invoice No : <?= $detail_sj1->inv_no; ?></td>
+    </tr>
+</table>
+<table border="0" style="margin-left: 7px; margin-bottom: 10px; border: 1px solid black; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; border-collapse: collapse;">
+    <tr style="text-align: center;">
+        <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 20px;">No</th>
+        <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 230px;">Item</th>
+        <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Description</th>
+        <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100px;">Qty</th>
+        <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Remark</th>
+    </tr>
+    <?php $no = 1; if (!empty($detail_sj)) : ?>
+        <?php foreach ($detail_sj as $index => $item) : ?>
             <tr>
-        
-                <td>
-                <img src="<?= base_url('assets/img/akt.png'); ?>" width="250" alt="">
-                </td>
-                <td style="width: 280px;"><h2 style="text-align: center;">Pengumuman Reminder Kontrak</h2></td>
-                <td></td>
+                <td style="border-right: 1px solid black; text-align: center;"><?= $item->item ? $no++ : ''; ?></td>
+                <td style="border-right: 1px solid black; padding-left: 4px;"><?= $item->item; ?></td>
+                <td style="border-right: 1px solid black; padding-left: 4px;"><?= $item->deskripsi; ?></td>
+                <td style="border-right: 1px solid black; text-align: center;"><?= $item->qty; ?></td>
+                <td style="border-right: 1px solid black; padding-left: 4px;"><?= $item->remark; ?></td>
             </tr>
-        </table>
-        <hr>
-        <h3>Bagi karyawan dengan nama-nama berikut, mohon untuk kedatangannya di office menemui HRD untuk penandatanganan kontrak kerja.</h3>
-    
-    <!-- <div class="content" style="margin-top: 70px;"> -->
+        <?php endforeach; ?>
+    <?php else : ?>
+        <tr>
+            <td colspan="5" class="text-center">No items found.</td>
+        </tr>
+    <?php endif; ?>
+</table>
+<br>
+<table border="0">
+    <tr>
+        <th style="width: 300px;">Authorize</th>
+        <th style="width: 300px;">Receiver</th>
+        <th style="width: 300px;">Security</th>
+        <td style="width: 300px; text-align: left;" rowspan="3">
+            <b>Note :</b> <br>
+            White Sheet (authorizer) <br>
+            Red Sheet (receiver) <br>
+            Yellow Sheet(security) <br>
+        </td>
+    </tr>
+    <tr>
+        <td style="height: 60px;"></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
 
-    <center><div class="table-responsive">
-        <table  border="1" style="border: 1px solid black; text-align: center; border-collapse: collapse ;">
-            <thead>
-                <tr  style="background: yellow; color: ;">
-                    <th width="30">No.</th>
-                    <th width="50">NIP</th>
-                    <th width="210" >NAMA</th>
-                    <th width="100">DEPT</th>
-                    <th width="150">POS</th>
-                    <th width="100">HABIS KONTRAK</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $no = 1;
-                if ($karyawan) :
-                    foreach ($karyawan as $row) :
-                ?>
-                        <tr>
-                            <td style="padding: 5px;"><?= $no++; ?></td>
-                            <td style=""><?=$row['nik_akt'] ?></td>
-                            <td style="text-align: left;"><?=$row['nama'] ?></td>
-                            <td style="text-align: left;"><?=$row['dept'] ?></td>
-                            <td style="text-align: left;"><?=$row['post'] ?></td>
-                            <td style="background: #F54E49; ;"><?=$row['end_kontrak'] ?></td>
-                         
-                        </tr>
-                    <?php endforeach;
-                else : ?>
-                    <tr>
-                        <td colspan="9" class="text-center">Silahkan tambahkan Karyawan baru</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-
-            
-        </table></center><br>
-        <div style="margin-left: 50px;">
-        <b>TTD HRD <br>PT AKT INDONESIA 
-            <br><br><br><br><br>
-            <?php foreach ($nama_hrd as $hrd) : ?>
-            <?php echo $hrd->nama_hrd; ?>
-        <?php endforeach; ?>  </b></div>
-             
-
-    </div>
-    <!-- </div> -->
-
+    <tr style="text-align: center;">
+        <td><?= $detail_sj1->author; ?></td>
+        <td><?= $detail_sj1->receiver; ?></td>
+        <td></td>
+    </tr>
+    <tr style="text-align: center;">
+        <td>_________________</td>
+        <td>_________________</td>
+        <td>_________________</td>
+    </tr>
+</table>
+</center>
 
 <script>
     window.print();
 </script>
 
-    
-</body>
-</html>
+<script>
+    window.addEventListener('beforeprint', function () {
+        const headers = document.querySelectorAll('header.print-header');
+        const pages = document.querySelectorAll('.page');
+        headers.forEach(header => header.style.display = 'none');
+
+        pages.forEach((page, index) => {
+            if (index

@@ -131,12 +131,12 @@
             </div>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('surat_jalan'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Tambah Surat Jalan</span>
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('surat_jalan/print_sj'); ?>">
