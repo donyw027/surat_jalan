@@ -235,9 +235,13 @@
                     <div class="col-md-8 text-center">
                         <button type="submit" class="btn btn-primary btn-icon-split" onclick="return confirm('Yakin ingin Simpan dan Print data?')">
                             <span class="icon"><i class="fa fa-save"></i></span>
-                            <span class="text">Simpan</span>
+                            <span class="text">Simpan & Print</span>
                         </button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="button" class="btn btn-info btn-icon-split" onclick="printPreview()">
+            <span class="icon"><i class="fa fa-print"></i></span>
+            <span class="text">Print Preview (Tanpa Simpan)</span>
+        </button>
+                        
                     </div>
                 </div>
 
@@ -314,4 +318,193 @@
             }
         });
     });
+</script>
+
+<script>
+    function printPreview() {
+        // Ambil data dari form
+        const noSuratValue = document.getElementById('no_surat_db').value;
+        const tglValue = document.getElementById('tgl').value;
+        const kepadaValue = document.getElementById('kepada').value;
+        const perihalValue = document.getElementById('perihal').value;
+        const invNoValue = document.getElementById('inv_no').value;
+        const carPlatValue = document.getElementById('car_plat').value;
+        const authorValue = document.getElementById('author').value;
+        const receiverValue = document.getElementById('receiver').value;
+        const parafPicValue = document.getElementById('paraf_pic').value;
+        
+        const items = document.querySelectorAll('input[name="item[]"]');
+        const deskripsi = document.querySelectorAll('input[name="deskripsi[]"]');
+        const qty = document.querySelectorAll('input[name="qty[]"]');
+        const remark = document.querySelectorAll('input[name="remark[]"]');
+
+        let itemList = '';
+        items.forEach((item, index) => {
+            itemList += `
+                <tr>
+                    <td style="border-right: 1px solid black;padding-left: 4px;">${item.value}</td>
+                    <td style="border-right: 1px solid black;padding-left: 4px;">${deskripsi[index].value}</td>
+                    <td style="border-right: 1px solid black;padding-left: 4px;">${qty[index].value}</td>
+                    <td style="border-right: 1px solid black;padding-left: 4px;">${remark[index].value}</td>
+                </tr>
+            `;
+        });
+
+        // Buat jendela print preview
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+        <!DOCTYPE html>
+<html lang="en">
+           
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Print Surat Jalan</title>
+        <style>
+            @page {
+                size: auto;
+                margin: 0mm;
+            }
+            h2, h4 {
+                text-align: center;
+            }
+            @media print {
+                body {
+                    margin: 20mm 15mm;
+                    -webkit-print-color-adjust: exact;
+                }
+                .content {
+                    page-break-inside: avoid;
+                    text-align: justify;
+                    margin-top: 90px;
+                    page-break-inside: avoid;
+                }
+                .page-break {
+                    page-break-before: always;
+                    page-break-after: always;
+                }
+            }
+            .page-break {
+                page-break-before: always;
+                page-break-after: always;
+            }
+            body {
+                margin: 2px;
+                margin-left: 3px;
+                padding: 0;
+                background-color: #FAFAFA;
+                font: 10pt "Times New Roman";
+            }
+            * {
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+            @page {
+                margin: 0;
+            }
+            @media print {
+                .page {
+                    margin: 0;
+                    border: initial;
+                    border-radius: initial;
+                    width: initial;
+                    min-height: initial;
+                    box-shadow: initial;
+                    background: initial;
+                    page-break-after: always;
+                }
+            }
+            header.print-header {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="print-header" id="1">
+            <br><br>
+            <button><a href="#" onclick="window.close()" class="btn btn-sm btn-primary">Kembali</a></button>
+        </header>
+
+        <table border="0" style="margin-left: 10px;">
+            <tr>
+                <td style="width: 250px;">
+                    <p style="font-family: Arial, Helvetica, sans-serif; font-weight: 800;font-size: 14pt; margin: 0;">PT. <b style="font-weight: 800;font-size: 19pt;">AKT</b> INDONESIA</p>
+                    <p style="text-align: left; margin-top: 0px; font-size: 11pt;">Jalan Rembang Industri Raya 45 Pier <br> Pasuruan, Indonesia <br>Post Code : 67152</p>
+                </td>
+                <td style="width: 280px; text-align: center;">
+                    <H2 style="margin: 0;"><br>SURAT JALAN</H2>
+                    <b style="font-size: 15pt;">${noSuratValue}</b>
+                </td>
+                <td style="font-family: Arial, Helvetica, sans-serif; font-weight: 500;font-size: 11pt; margin: 0; width: 200px;">
+                    Date: ${tglValue}
+                </td>
+            </tr>
+        </table>
+        
+        <center>
+            <table border="0" style="margin-left: 5px;">
+                <tr style="font-size: 10pt;">
+                    <td style="width: 290px;">Kepada: ${kepadaValue}</td>
+                    <td style="width: 250px;">Car License Plate: ${carPlatValue}</td>
+                    <td style="width: 200px;">Invoice No: ${invNoValue}</td>
+                </tr>
+            </table>
+            <table border="0" style="margin-left: 7px; margin-bottom: 10px; border: 1px solid black !important; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; border-collapse: collapse;">
+                <tr style="text-align: center;">
+                    <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 230px;">Item</th>
+                    <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Description</th>
+                    <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 100px;">Qty</th>
+                    <th style="border-bottom: 1px solid black; border-right: 1px solid black; width: 250px;">Remark</th>
+                </tr>
+                ${itemList}
+            </table>
+            <br>
+            <table border="0">
+                <tr>
+                    <th style="width: 300px;">Authorize</th>
+                    <th style="width: 300px;">Receiver</th>
+                    <th style="width: 300px;">Security</th>
+                    <td style="width: 300px; text-align: left;" rowspan="3">
+                        <b>Note:</b> <br>
+                        White Sheet (authorizer) <br>
+                        Red Sheet (receiver) <br>
+                        Yellow Sheet (security) <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height: 60px;"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td>${authorValue}</td>
+                    <td>${receiverValue}</td>
+                    <td></td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td>_________________</td>
+                    <td>_________________</td>
+                    <td>_________________</td>
+                </tr>
+            </table>
+        </center>
+    </body>
+
+    
+    </html>
+
+
+
+
+            
+        `);
+
+        printWindow.document.close();
+    }
 </script>
