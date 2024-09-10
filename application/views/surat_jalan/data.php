@@ -95,7 +95,7 @@
                         <div class="row form-group">
                             <label class="col-3 text-md-right" for="perihal">perihal</label>
                             <div class="col-md-9">
-                                <input value="<?= set_value('perihal'); ?>" type="text" id="perihal" name="perihal" class="form-control" placeholder="Masukan perihal">
+                                <input style="background-color: yellow;" value="<?= set_value('perihal'); ?>" type="text" id="perihal" name="perihal" class="form-control" placeholder="Ini Harus Di isi ya ...">
                                 <?= form_error('perihal', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                         <div class="row form-group">
                             <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
                             <div class="col-md-9">
-                                <input value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan PIC">
+                                <input style="background-color: yellow;" value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan PIC">
                                 <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
@@ -248,17 +248,6 @@
                 <?= form_close(); ?>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 </div>
@@ -341,7 +330,7 @@
         let itemList = '';
         items.forEach((item, index) => {
             itemList += `
-                <tr>
+                <tr style="height: 20px;">
                     <td style="border-right: 1px solid black;padding-left: 4px;">${item.value}</td>
                     <td style="border-right: 1px solid black;padding-left: 4px;">${deskripsi[index].value}</td>
                     <td style="border-right: 1px solid black;padding-left: 4px;">${qty[index].value}</td>
@@ -425,6 +414,8 @@
             <br><br>
             <button><a href="#" onclick="window.close()" class="btn btn-sm btn-primary">Kembali</a></button>
         </header>
+
+        <center><h1>INI HANYA PREVIEW YA</h1></center><hr>
 
         <table border="0" style="margin-left: 10px;">
             <tr>

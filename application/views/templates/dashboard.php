@@ -103,12 +103,12 @@
                 </div>
             </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link pb-0" href="<?= base_url('car'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Master Car</span>
                 </a>
-            </li>
+            </li> -->
 
 
 
@@ -162,6 +162,13 @@
                 <a class="nav-link pb-0" href="<?= base_url('histori_sj'); ?>">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>History Surat Jalan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link pb-0" href="<?= base_url('hdetail_sj'); ?>">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Detail Data Surat Jalan</span>
                 </a>
             </li>
            

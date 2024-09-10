@@ -143,7 +143,7 @@
 
     <table border="0" style="margin-left: 5px;">
         <tr style="font-size: 10pt;">
-            <td style="width: 290px;">Kepada : <?= $detail_sj1->kepada; ?></td>
+            <td style="width: 320px;">Kepada : <?= $detail_sj1->kepada; ?></td>
             <td style="width: 250px;">Car License Plate : <?= $detail_sj1->car_plat; ?></td>
             <td style="width: 200px;">Invoice No : <?= $detail_sj1->inv_no; ?></td>
         </tr>

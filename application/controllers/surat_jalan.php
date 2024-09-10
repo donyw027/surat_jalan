@@ -32,6 +32,8 @@ class Surat_jalan extends CI_Controller
 
         if ($mode == 'add') {
             $this->form_validation->set_rules('tgl', 'tgl', 'required|trim');
+
+
         } else {
             $db = $this->admin->get('riwayat_surat_jalan', ['tgl' => $this->input->post('tgl', true)]);
             $stok = $this->input->post('tgl', true);
@@ -239,6 +241,19 @@ class Surat_jalan extends CI_Controller
         }
         // $this->template->load('templates/dashboard', 'print/form_sj');
 
+    }
+
+    public function hdetail_sj()
+    {
+
+        $data['title'] = "Detail Data Surat Jalan";
+        $role = $this->session->userdata('login_session')['role'];
+
+        if (is_admin() == true) {
+            $data['hdetail_sj'] = $this->admin->get('surat_jalan');
+
+            $this->template->load('templates/dashboard', 'hdetail_sj/data', $data);
+        }
     }
 
     public function printdata($no_surat)  {
