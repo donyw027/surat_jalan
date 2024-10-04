@@ -194,7 +194,7 @@
                 <hr class="sidebar-divider">
 
 
-                <?php if ($this->session->userdata('login_session')['nama'] == 'Doni' || $this->session->userdata('login_session')['nama'] == 'Faiz') : ?>
+                <?php if ($this->session->userdata('login_session')['nama'] == 'Doni') : ?>
 
                 <!-- Heading -->
                 <div class="sidebar-heading">

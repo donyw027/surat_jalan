@@ -32,6 +32,8 @@ class Dashboard extends CI_Controller
 
         $data['user'] = $this->admin->count('user');
         $data['riwayat_surat_jalan'] = $this->admin->count('riwayat_surat_jalan');
+        $data['dsurat_jalan'] = $this->admin->count('surat_jalan');
+
 
 
         // $data['jumlah_karyawan_aktif'] = $this->db->query("SELECT COUNT(nik_akt) as jumlah FROM karyawan WHERE status_karyawan='aktif'")->row()->jumlah;

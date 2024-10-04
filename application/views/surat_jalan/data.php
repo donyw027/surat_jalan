@@ -163,7 +163,17 @@
                         <div class="row form-group">
                             <label class="col-3 text-md-right" for="paraf_pic">PIC</label>
                             <div class="col-md-9">
-                                <input style="background-color: yellow;" value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan PIC">
+                                <!-- <input style="background-color: yellow;" value="<?= set_value('paraf_pic'); ?>" type="text" id="paraf_pic" name="paraf_pic" class="form-control" placeholder="Masukan PIC"> -->
+                                <select class="form-control" name="paraf_pic" id="paraf_pic">
+                                    <option value="">--Pilih PIC--</option>
+                                    <?php if (!empty($author1)) : ?>
+                                        <?php foreach ($author1 as $authori) : ?>
+                                            <option value="<?= $authori['nama']; ?>"><?= $authori['nama']; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <option value="">Data tidak ada</option>
+                                    <?php endif; ?>
+                                </select>
                                 <?= form_error('paraf_pic', '<span class="text-danger small">', '</span>'); ?>
                             </div>
                         </div>
